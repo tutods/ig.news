@@ -17,7 +17,7 @@
   		<img src="https://img.shields.io/badge/React%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React"/>
 	</a>
 <a href="#">
-  		<img src="https://img.shields.io/badge/Nest.js%20-%2320232a.svg?
+  		<img src="https://img.shields.io/badge/Next.js%20-%2320232a.svg?
 &style=for-the-badge&logo=next.js&logoColor=white" alt="Next"/>
 	</a>
 	<a href="#">

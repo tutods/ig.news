@@ -10,7 +10,6 @@ const HeroSection = styled("section", {
 
 const Content = styled("div", {
   width: "100%",
-  maxWidth: "100vw",
   maxWidth: "1440px",
 
   margin: "0 auto", // center horizontally

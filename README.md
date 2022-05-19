@@ -47,12 +47,6 @@ To see layout created by **Rocketseat** team, click on badge below:
 
 <br /><br />
 
-<h2 style="font-weight:300">ℹ️ Useful Links:</h2>
-
-- [Server side rendering Styled-Components with NextJS](https://medium.com/swlh/server-side-rendering-styled-components-with-nextjs-1db1353e915e)
-
-<br /><br />
-
 <div align="right" style="margin-top: 50px">
 <h3 style="font-weight: 300">
 🧑🏻‍💻 About Me

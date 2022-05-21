@@ -1,4 +1,4 @@
-import type { GetServerSideProps, NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { Content, HeroSection } from "styles/pages/home.styles";
 import { SubscriptionButton } from "components/ui/buttons/SubscriptionButton";
@@ -44,7 +44,7 @@ const Home: NextPage<Props> = ({product}) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const price = await stripe.prices.retrieve(envConfig.stripe.priceKey);
 
   const product = {
@@ -59,6 +59,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     props: {
       product,
     },
+    revalidate: 60 * 60 * 24, // 24 hours (60 seconds, 60 minutes, 24 hours)
   };
 };
 

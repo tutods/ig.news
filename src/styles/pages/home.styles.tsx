@@ -48,8 +48,6 @@ const Content = styled("div", {
     },
 
     p: {
-      // maxWidth: "55%",
-
       marginBottom: "$40",
 
       color: "$white",
@@ -85,23 +83,4 @@ const Content = styled("div", {
   },
 });
 
-const SubscriptionButton = styled("button", {
-  padding: "$20 $62",
-
-  borderRadius: "$100",
-
-  backgroundColor: "$yellow",
-  color: "$background",
-
-  fontWeight: "$bold",
-  fontSize: "$20",
-  textAlign: "center",
-
-  transition: "filter 0.2s",
-
-  "&:hover": {
-    filter: "opacity(0.7)",
-  },
-});
-
-export { HeroSection, Content, SubscriptionButton };
+export { HeroSection, Content };

@@ -1,44 +1,65 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
-import {
-  Content,
-  HeroSection,
-  SubscriptionButton,
-} from "styles/pages/home.styles";
+import { Content, HeroSection } from "styles/pages/home.styles";
+import { SubscriptionButton } from "components/ui/buttons/SubscriptionButton";
+import { stripe } from "shared/services/stripe";
+import { envConfig } from "core/config/env.config";
 
-const Home: NextPage = () => {
+type Props = {
+  product: { priceId: string; amount: string };
+};
+
+const Home: NextPage<Props> = ({product}) => {
   return (
-    <>
-      <Head>
-        <title>ig.news</title>
-      </Head>
-      <main>
-        <HeroSection>
-          <Content>
-            <div>
-              <h3>
-                <span>👏</span> Hey, welcome
-              </h3>
-              <h1>
-                News about the <span>React</span> world
-              </h1>
-              <p>
-                Get access to all the publications
-                <br />
-                <span>for $9.90 month</span>
-              </p>
+      <>
+        <Head>
+          <title>ig.news</title>
+        </Head>
+        <main>
+          <HeroSection>
+            <Content>
+              <div>
+                <h3>
+                  <span>👏</span> Hey, welcome
+                </h3>
+                <h1>
+                  News about the <span>React</span> world
+                </h1>
+                <p>
+                  Get access to all the publications
+                  <br/>
+                  <span>for {product.amount} month</span>
+                </p>
 
-              <SubscriptionButton>Subscribe now</SubscriptionButton>
-            </div>
+                <SubscriptionButton priceId={product.priceId}/>
+              </div>
 
-            <div>
-              <img src={"/media/women.svg"} alt={"Girl Coding"} />
-            </div>
-          </Content>
-        </HeroSection>
-      </main>
-    </>
+              <div>
+                <img src={"/media/women.svg"} alt={"Girl Coding"}/>
+              </div>
+            </Content>
+          </HeroSection>
+        </main>
+      </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const price = await stripe.prices.retrieve(envConfig.stripe.priceKey);
+
+  const product = {
+    priceId: price.id,
+    amount: new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(price.unit_amount! / 100),
+  };
+
+  return {
+    props: {
+      product,
+    },
+  };
 };
 
 export default Home;

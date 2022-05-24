@@ -1,4 +1,4 @@
-import { EnvConfigType } from "core/@types/EnvConfig";
+import { EnvConfigType } from "@types/EnvConfig";
 
 const envConfig: EnvConfigType = {
   stripe: {

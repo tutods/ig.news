@@ -1,24 +1,29 @@
 import { StyledButton } from "components/ui/buttons/GithubButton/styles";
-import Icon from "components/ui/icons/Icon";
-import { useState } from "react";
+import Icon from "components/icons/Icon";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const GithubButton = () => {
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const { data: session } = useSession();
 
   const handleUserLogin = () => {
-    setIsUserLoggedIn((prevState) => !prevState);
+    signIn("github");
   };
 
   return (
     <StyledButton onClick={handleUserLogin}>
       <Icon
         name={"github"}
-        color={isUserLoggedIn ? "green" : "yellow"}
+        color={!!session ? "green" : "yellow"}
         size={"lg"}
       />
-      {isUserLoggedIn ? "Daniel Sousa @TutoDS" : "Sign in with GitHub"}
-      {isUserLoggedIn && (
-        <Icon name={"close"} size={"lg"} css={{ fill: "#737380" }} />
+
+      {!!session && (
+        <Icon
+          onClick={signOut}
+          name={"close"}
+          size={"lg"}
+          css={{ fill: "#737380" }}
+        />
       )}
     </StyledButton>
   );

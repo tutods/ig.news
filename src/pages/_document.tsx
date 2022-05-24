@@ -1,5 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
-import { Sprite } from "components/ui/icons/Sprite";
+import { Sprite } from "components/icons/Sprite";
 
 export default class MyDocument extends Document {
   render() {

@@ -5,28 +5,29 @@ import { signIn, signOut, useSession } from "next-auth/react";
 const GithubButton = () => {
   const { data: session } = useSession();
 
-  const handleUserLogin = () => {
-    signIn("github");
+  const handleSession = () => {
+    if (!session) {
+      signIn("github");
+    } else {
+      signOut();
+    }
   };
 
   return (
-    <StyledButton onClick={handleUserLogin}>
+    <StyledButton onClick={handleSession}>
       <Icon
         name={"github"}
         color={!!session ? "green" : "yellow"}
         size={"lg"}
       />
 
+      {session && session.user ? session.user.name : "Sign in with Github"}
+
       {!!session && (
-        <Icon
-          onClick={signOut}
-          name={"close"}
-          size={"lg"}
-          css={{ fill: "#737380" }}
-        />
+        <Icon name={"close"} size={"lg"} css={{ fill: "#737380" }} />
       )}
     </StyledButton>
   );
 };
 
-export { GithubButton };
+export {GithubButton};

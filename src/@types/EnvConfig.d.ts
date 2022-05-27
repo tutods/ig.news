@@ -4,6 +4,13 @@ type EnvConfigType = {
     secret: string;
     priceKey: string;
   };
+  auth: {
+    secret: string;
+    github: {
+      id: string;
+      secret: string;
+    };
+  };
 };
 
 export { EnvConfigType };

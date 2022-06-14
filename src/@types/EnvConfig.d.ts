@@ -3,6 +3,10 @@ type EnvConfigType = {
 		key: string;
 		secret: string;
 		priceKey: string;
+		url: {
+			success: string
+			cancel: string
+		}
 	};
 	auth: {
 		secret: string;
@@ -16,4 +20,4 @@ type EnvConfigType = {
 	};
 };
 
-export { EnvConfigType };
+export {EnvConfigType};

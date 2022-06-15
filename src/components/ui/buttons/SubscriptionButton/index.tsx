@@ -23,7 +23,7 @@ const SubscriptionButton = ({ priceId }: Props) => {
 
       const stripe = await getStripeJs();
 
-      await stripe?.redirectToCheckout(sessionId);
+      await stripe?.redirectToCheckout({ sessionId });
     } catch (error: any) {
       alert(error.message);
     }

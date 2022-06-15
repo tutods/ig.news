@@ -22,11 +22,8 @@ const subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
       mode: "subscription",
       line_items: [
         {
-          name: "ig.news Subscription",
-          price: req.body.priceId,
-          amount: 1,
+          price: envConfig.stripe.priceKey,
           quantity: 1,
-          currency: "USD",
         },
       ],
       allow_promotion_codes: true,

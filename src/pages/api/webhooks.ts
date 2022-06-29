@@ -3,6 +3,7 @@ import { Stripe } from 'stripe';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { Readable } from 'stream';
 import { stripe } from 'services/stripe';
+import { saveSubscription } from './_lib/manageSubscription';
 
 const buffer = async (readable: Readable) => {
 	const chunks = [];
@@ -20,7 +21,11 @@ export const config = {
 	},
 };
 
-const relevantEvents = new Set(['checkout.session.completed']);
+const relevantEvents = new Set([
+	'checkout.session.completed',
+	'customer.subscription.updated',
+	'customer.subscription.deleted',
+]);
 
 const webhooks = async (req: NextApiRequest, res: NextApiResponse) => {
 	if (req.method === 'POST') {
@@ -42,7 +47,39 @@ const webhooks = async (req: NextApiRequest, res: NextApiResponse) => {
 		const { type } = event;
 
 		if (relevantEvents.has(type)) {
-			console.log(`Webhook received: ${type}`, event);
+			try {
+				switch (type) {
+					case 'customer.subscription.updated':
+					case 'customer.subscription.deleted':
+						const { id, customer } = event.data
+							.object as Stripe.Subscription;
+
+						await saveSubscription(id, customer?.toString()!);
+
+						break;
+
+					case 'checkout.session.completed':
+						const {
+							subscription: checkoutSubscription,
+							customer: checkoutCustomer,
+						} = event.data.object as Stripe.Checkout.Session;
+
+						await saveSubscription(
+							checkoutSubscription?.toString()!,
+							checkoutCustomer?.toString()!,
+							true
+						);
+
+						break;
+
+					default:
+						throw new Error('Unhandled event type');
+				}
+			} catch (error: any) {
+				return res.status(400).json({
+					error: error.message || 'Webhook handler failed.',
+				});
+			}
 		}
 
 		res.json({ received: true });

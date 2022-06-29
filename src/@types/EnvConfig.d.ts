@@ -3,10 +3,11 @@ type EnvConfigType = {
 		key: string;
 		secret: string;
 		priceKey: string;
+		webhookSecret: string;
 		url: {
-			success: string
-			cancel: string
-		}
+			success: string;
+			cancel: string;
+		};
 	};
 	auth: {
 		secret: string;
@@ -20,4 +21,4 @@ type EnvConfigType = {
 	};
 };
 
-export {EnvConfigType};
+export { EnvConfigType };

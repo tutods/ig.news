@@ -19,6 +19,9 @@ type EnvConfigType = {
 	db: {
 		secret: string;
 	};
+	prismic: {
+		token: string;
+	};
 };
 
 export { EnvConfigType };

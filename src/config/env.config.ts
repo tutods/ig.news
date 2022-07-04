@@ -21,6 +21,9 @@ const envConfig: EnvConfigType = {
 	db: {
 		secret: process.env.FAUNA_SECRET!,
 	},
+	prismic: {
+		token: process.env.PRISMIC_ACCESS_TOKEN!,
+	},
 };
 
 export { envConfig };

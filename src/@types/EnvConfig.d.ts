@@ -20,6 +20,7 @@ type EnvConfigType = {
 		secret: string;
 	};
 	prismic: {
+		entryPoint: string;
 		token: string;
 	};
 };

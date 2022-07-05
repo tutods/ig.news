@@ -22,6 +22,7 @@ const envConfig: EnvConfigType = {
 		secret: process.env.FAUNA_SECRET!,
 	},
 	prismic: {
+		entryPoint: process.env.PRISMIC_ENTRY_POINT!,
 		token: process.env.PRISMIC_ACCESS_TOKEN!,
 	},
 };

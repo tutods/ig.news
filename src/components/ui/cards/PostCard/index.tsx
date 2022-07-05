@@ -1,17 +1,20 @@
+import { ShortPost } from '@types/Post';
+import Link from 'next/link';
 import { LinkContainer } from './styles';
 
-type Props = {};
+type Props = {
+	post: ShortPost;
+};
 
-const PostCard = () => {
+const PostCard = ({ post }: Props) => {
 	return (
-		<LinkContainer href=''>
-			<time>12 de março de 2021</time>
-			<h3>Create a monorepo</h3>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-				eaque obcaecati voluptate cumque debitis.
-			</p>
-		</LinkContainer>
+		<Link href={`${post.slug}`}>
+			<LinkContainer>
+				<time>{post.updatedAt}</time>
+				<h3>{post.title}</h3>
+				<p>{post.excerpt}</p>
+			</LinkContainer>
+		</Link>
 	);
 };
 

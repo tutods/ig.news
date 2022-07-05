@@ -9,6 +9,8 @@ const LinkContainer = styled('a', {
 	paddingBottom: '$32',
 	borderBottom: '1px solid $colors$gray700',
 
+	cursor: 'pointer',
+
 	'&>time': {
 		marginBottom: '$16',
 

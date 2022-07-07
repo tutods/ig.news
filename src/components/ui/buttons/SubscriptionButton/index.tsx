@@ -1,7 +1,7 @@
-import { StyledButton } from "components/ui/buttons/SubscriptionButton/styles";
+import { StyledButton } from '~/components/ui/buttons/SubscriptionButton/styles';
 import { signIn, useSession } from "next-auth/react";
-import { api } from "services/api";
-import { getStripeJs } from "services/stripe-js";
+import { api } from '~/services/api';
+import { getStripeJs } from '~/services/stripe-js';
 
 type Props = {
   priceId: string;

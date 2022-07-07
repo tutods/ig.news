@@ -1,4 +1,4 @@
-import { styled } from 'styles/stitches.config';
+import { styled } from '~/styles/stitches.config';
 
 const LinkContainer = styled('a', {
 	width: '100%',

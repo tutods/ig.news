@@ -1,10 +1,10 @@
 import { RichText } from 'prismic-dom';
-import { PostCard } from 'components/ui/cards/PostCard';
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-import { getPrismicClient } from 'services/prismic';
-import { Container } from 'styles/pages/posts/posts.styles';
-import { ShortPost } from '@types/Post';
+import { ShortPost } from '~/@types/Post';
+import { PostCard } from '~/components/ui/cards/PostCard';
+import { getPrismicClient } from '~/services/prismic';
+import { Container } from '~/styles/pages/posts/posts.styles';
 
 type Props = {
 	posts: ShortPost[];
@@ -34,8 +34,6 @@ export const getStaticProps: GetStaticProps = async () => {
 	const response = await client.getAllByType('post', {
 		fetch: ['post.title', 'post.content'],
 	});
-
-	console.log(JSON.stringify(response, null, 2));
 
 	const posts = response.map((post) => {
 		return {

@@ -1,4 +1,4 @@
-import { ShortPost } from '@types/Post';
+import { ShortPost } from '~/@types/Post';
 import Link from 'next/link';
 import { LinkContainer } from './styles';
 

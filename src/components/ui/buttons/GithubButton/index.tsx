@@ -1,5 +1,5 @@
-import { StyledButton } from "components/ui/buttons/GithubButton/styles";
-import Icon from "components/icons/Icon";
+import { StyledButton } from '~/components/ui/buttons/GithubButton/styles';
+import Icon from '~/components/icons/Icon';
 import { signIn, signOut, useSession } from "next-auth/react";
 
 const GithubButton = () => {

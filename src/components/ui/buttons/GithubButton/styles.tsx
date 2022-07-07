@@ -1,4 +1,4 @@
-import { styled } from "styles/stitches.config";
+import { styled } from '~/styles/stitches.config';
 
 const StyledButton = styled("button", {
   inlineFlex: "row",

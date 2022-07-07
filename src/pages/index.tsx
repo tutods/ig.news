@@ -1,9 +1,9 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-import { Content, HeroSection } from 'styles/pages/home.styles';
-import { SubscriptionButton } from 'components/ui/buttons/SubscriptionButton';
-import { stripe } from 'services/stripe';
-import { envConfig } from 'config/env.config';
+import { Content, HeroSection } from '~/styles/pages/home.styles';
+import { SubscriptionButton } from '~/components/ui/buttons/SubscriptionButton';
+import { stripe } from '~/services/stripe';
+import { envConfig } from '~/config/env.config';
 import Image from 'next/image';
 
 type Props = {

@@ -1,8 +1,8 @@
-import { envConfig } from 'config/env.config';
+import { envConfig } from '~/config/env.config';
 import { Stripe } from 'stripe';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { Readable } from 'stream';
-import { stripe } from 'services/stripe';
+import { stripe } from '~/services/stripe';
 import { saveSubscription } from './_lib/manageSubscription';
 
 const buffer = async (readable: Readable) => {

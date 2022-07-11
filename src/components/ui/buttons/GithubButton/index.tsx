@@ -21,7 +21,7 @@ const GithubButton = () => {
 
 			{session && session.user ? session.user.name : 'Sign in with Github'}
 
-			{!!session && <Icon name={'close'} size={'lg'} css={{ fill: '#737380' }} />}
+			{!!session && <Icon name={'close'} size={'lg'} css={{ fill: '$gray200' }} />}
 		</StyledButton>
 	);
 };

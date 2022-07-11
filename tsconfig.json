@@ -20,6 +20,6 @@
 			"~/*": ["src/*"]
 		}
 	},
-	"include": ["next-env.d.ts", "src"],
+	"include": ["next-env.d.ts", "src", ".eslintrc.js"],
 	"exclude": ["node_modules"]
 }

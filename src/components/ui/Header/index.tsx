@@ -1,10 +1,7 @@
-import {
-	HeaderContent,
-	StyledHeader,
-	StyledLogo,
-} from '~/components/ui/Header/styles';
 import { GithubButton } from '~/components/ui/buttons/GithubButton';
 import { NavLink } from '~/components/ui/Header/partials/NavLink';
+
+import { HeaderContent, StyledHeader, StyledLogo } from '~/components/ui/Header/styles';
 
 const Header = () => {
 	return (

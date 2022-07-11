@@ -1,4 +1,4 @@
-export const lineHeights = {
+const lineHeights = {
 	8: '0.5rem',
 	12: '0.75rem',
 	14: '0.875rem',
@@ -14,5 +14,7 @@ export const lineHeights = {
 	56: '3.5rem',
 	72: '4.5rem',
 	80: '5rem',
-	96: '6rem',
+	96: '6rem'
 };
+
+export { lineHeights };

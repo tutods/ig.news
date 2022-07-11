@@ -1,0 +1,11 @@
+package.json
+.next/
+dist/
+build/
+*.sass
+node_modules/
+yarn.lock
+pnpm-lock.yaml
+.env
+.env.local
+.env.example

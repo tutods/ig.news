@@ -1,4 +1,4 @@
-export const sizes = {
+const sizes = {
 	2: '0.125rem',
 	4: '0.25rem',
 	6: '0.375rem',
@@ -35,5 +35,7 @@ export const sizes = {
 	455: '28.4375rem',
 	500: '31.25rem',
 	720: '45rem',
-	1120: '70rem',
+	1120: '70rem'
 };
+
+export { sizes };

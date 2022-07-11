@@ -11,8 +11,8 @@ const Container = styled('main', {
 		flexDirection: 'column',
 		gap: '$32',
 
-		margin: '$space$80 auto 0',
-	},
+		margin: '$space$80 auto 0'
+	}
 });
 
 export { Container };

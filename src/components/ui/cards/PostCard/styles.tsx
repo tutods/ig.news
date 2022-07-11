@@ -15,7 +15,7 @@ const LinkContainer = styled('a', {
 		marginBottom: '$16',
 
 		color: '$gray300',
-		fontSize: '$16',
+		fontSize: '$16'
 	},
 
 	'&>h3': {
@@ -25,21 +25,21 @@ const LinkContainer = styled('a', {
 		lineHeight: '$34',
 		fontWeight: '$bold',
 
-		transition: 'color 0.2s ease-in-out',
+		transition: 'color 0.2s ease-in-out'
 	},
 
 	'&>p': {
 		marginTop: '$8',
 
 		color: '$gray300',
-		fontWeight: '$light',
+		fontWeight: '$light'
 	},
 
 	'&:hover': {
 		'&>h3': {
-			color: '$yellow',
-		},
-	},
+			color: '$yellow'
+		}
+	}
 });
 
 export { LinkContainer };

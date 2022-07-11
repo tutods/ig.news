@@ -1,10 +1,12 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-import { Content, HeroSection } from '~/styles/pages/home.styles';
-import { SubscriptionButton } from '~/components/ui/buttons/SubscriptionButton';
-import { stripe } from '~/services/stripe';
-import { envConfig } from '~/config/env.config';
 import Image from 'next/image';
+
+import { SubscriptionButton } from '~/components/ui/buttons/SubscriptionButton';
+import { envConfig } from '~/config/env.config';
+import { stripe } from '~/services/stripe';
+
+import { Content, HeroSection } from '~/styles/pages/home.styles';
 
 type Props = {
 	product: { priceId: string; amount: string };
@@ -57,15 +59,15 @@ export const getStaticProps: GetStaticProps = async () => {
 		priceId: price.id,
 		amount: new Intl.NumberFormat('en-US', {
 			style: 'currency',
-			currency: 'USD',
-		}).format(price.unit_amount! / 100),
+			currency: 'USD'
+		}).format(price.unit_amount! / 100)
 	};
 
 	return {
 		props: {
-			product,
+			product
 		},
-		revalidate: 60 * 60 * 24, // 24 hours (60 seconds, 60 minutes, 24 hours)
+		revalidate: 60 * 60 * 24 // 24 hours (60 seconds, 60 minutes, 24 hours)
 	};
 };
 

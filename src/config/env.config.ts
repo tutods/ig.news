@@ -2,29 +2,29 @@ import { EnvConfigType } from '~/@types/EnvConfig';
 
 const envConfig: EnvConfigType = {
 	stripe: {
-		key: process.env.NEXT_PUBLIC_STRIPE_KEY!,
-		secret: process.env.STRIPE_SECRET_KEY!,
-		webhookSecret: process.env.STRIPE_WEBHOOK_SECRET!,
-		priceKey: process.env.PRICE_KEY!,
+		key: process.env.NEXT_PUBLIC_STRIPE_KEY || '',
+		secret: process.env.STRIPE_SECRET_KEY || '',
+		webhookSecret: process.env.STRIPE_WEBHOOK_SECRET || '',
+		priceKey: process.env.PRICE_KEY || '',
 		url: {
 			success: process.env.STRIPE_SUCCESS_URL || 'http://localhost:3000/',
-			cancel: process.env.STRIPE_CANCEL_URL || 'http://localhost:3000/',
-		},
+			cancel: process.env.STRIPE_CANCEL_URL || 'http://localhost:3000/'
+		}
 	},
 	auth: {
-		secret: process.env.NEXTAUTH_SECRET!,
+		secret: process.env.NEXTAUTH_SECRET || '',
 		github: {
-			id: process.env.GITHUB_ID!,
-			secret: process.env.GITHUB_SECRET!,
-		},
+			id: process.env.GITHUB_ID || '',
+			secret: process.env.GITHUB_SECRET || ''
+		}
 	},
 	db: {
-		secret: process.env.FAUNA_SECRET!,
+		secret: process.env.FAUNA_SECRET || ''
 	},
 	prismic: {
-		entryPoint: process.env.PRISMIC_ENTRY_POINT!,
-		token: process.env.PRISMIC_ACCESS_TOKEN!,
-	},
+		entryPoint: process.env.PRISMIC_ENTRY_POINT || '',
+		token: process.env.PRISMIC_ACCESS_TOKEN || ''
+	}
 };
 
 export { envConfig };

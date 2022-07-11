@@ -1,9 +1,11 @@
-import { RichText } from 'prismic-dom';
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
+import { RichText } from 'prismic-dom';
+
 import { ShortPost } from '~/@types/Post';
 import { PostCard } from '~/components/ui/cards/PostCard';
 import { getPrismicClient } from '~/services/prismic';
+
 import { Container } from '~/styles/pages/posts/posts.styles';
 
 type Props = {
@@ -32,7 +34,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	const client = getPrismicClient();
 
 	const response = await client.getAllByType('post', {
-		fetch: ['post.title', 'post.content'],
+		fetch: ['post.title', 'post.content']
 	});
 
 	const posts = response.map((post) => {
@@ -41,29 +43,22 @@ export const getStaticProps: GetStaticProps = async () => {
 			title: RichText.asText(post.data.title),
 			excerpt:
 				post.data.content.find((content: any) =>
-					[
-						'heading3',
-						'paragraph',
-						'heading4',
-						'heading5',
-						'heading6',
-					].includes(content.type)
+					['heading3', 'paragraph', 'heading4', 'heading5', 'heading6'].includes(
+						content.type
+					)
 				).text ?? '',
-			updatedAt: new Date(post.last_publication_date).toLocaleDateString(
-				'pt-PT',
-				{
-					day: '2-digit',
-					month: 'long',
-					year: 'numeric',
-				}
-			),
+			updatedAt: new Date(post.last_publication_date).toLocaleDateString('pt-PT', {
+				day: '2-digit',
+				month: 'long',
+				year: 'numeric'
+			})
 		};
 	});
 
 	return {
 		props: {
-			posts,
-		},
+			posts
+		}
 	};
 };
 

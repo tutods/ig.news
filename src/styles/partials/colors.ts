@@ -1,4 +1,4 @@
-export const colors = {
+const colors = {
 	green: '#04D361',
 	blue: '#61DCFB',
 	yellow: '#EBA417',
@@ -7,5 +7,7 @@ export const colors = {
 	gray300: '#a8a8b3',
 	gray700: '#323238',
 	shape: '#1F2729',
-	background: '#121414',
+	background: '#121414'
 };
+
+export { colors };

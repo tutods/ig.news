@@ -1,3 +1,5 @@
-export const radii = {
-    100: '6.25rem'
-}
+const radii = {
+	100: '6.25rem'
+};
+
+export { radii };

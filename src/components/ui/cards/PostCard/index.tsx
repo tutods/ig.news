@@ -1,5 +1,7 @@
-import { ShortPost } from '~/@types/Post';
 import Link from 'next/link';
+
+import { ShortPost } from '~/@types/Post';
+
 import { LinkContainer } from './styles';
 
 type Props = {

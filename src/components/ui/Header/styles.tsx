@@ -3,7 +3,7 @@ import { styled } from '~/styles/stitches.config';
 const StyledHeader = styled('header', {
 	height: '$80',
 
-	borderBottom: '1px solid $shape',
+	borderBottom: '1px solid $shape'
 });
 
 const HeaderContent = styled('div', {
@@ -23,20 +23,20 @@ const HeaderContent = styled('div', {
 		flex: '1 1 auto', // use all available space
 
 		display: 'flex',
-		gap: '$24',
+		gap: '$24'
 	},
 
 	'@sm': {
 		height: '$80',
 
 		nav: {
-			display: 'none',
+			display: 'none'
 		},
 
 		button: {
-			display: 'none',
-		},
-	},
+			display: 'none'
+		}
+	}
 });
 
 const StyledLogo = styled('div', {
@@ -45,8 +45,8 @@ const StyledLogo = styled('div', {
 	fontWeight: '$bold',
 
 	span: {
-		color: '$blue',
-	},
+		color: '$blue'
+	}
 });
 
-export { StyledHeader, HeaderContent, StyledLogo };
+export { HeaderContent, StyledHeader, StyledLogo };

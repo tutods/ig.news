@@ -1,13 +1,18 @@
-import { envConfig } from '~/config/env.config';
-import { Stripe } from 'stripe';
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable no-case-declarations */
 import { NextApiRequest, NextApiResponse } from 'next';
 import { Readable } from 'stream';
+import { Stripe } from 'stripe';
+
+import { envConfig } from '~/config/env.config';
+import { saveSubscription } from '~/pages/api/_lib/manageSubscription';
 import { stripe } from '~/services/stripe';
-import { saveSubscription } from './_lib/manageSubscription';
 
 const buffer = async (readable: Readable) => {
 	const chunks = [];
 
+	// eslint-disable-next-line no-restricted-syntax
 	for await (const chunk of readable) {
 		chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
 	}
@@ -17,17 +22,18 @@ const buffer = async (readable: Readable) => {
 
 export const config = {
 	api: {
-		bodyParser: false,
-	},
+		bodyParser: false
+	}
 };
 
 const relevantEvents = new Set([
 	'checkout.session.completed',
 	'customer.subscription.updated',
-	'customer.subscription.deleted',
+	'customer.subscription.deleted'
 ]);
 
-const webhooks = async (req: NextApiRequest, res: NextApiResponse) => {
+// eslint-disable-next-line consistent-return
+const webhooks = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
 	if (req.method === 'POST') {
 		const buff = await buffer(req);
 		const secret = req.headers['stripe-signature'];
@@ -35,11 +41,7 @@ const webhooks = async (req: NextApiRequest, res: NextApiResponse) => {
 		let event: Stripe.Event;
 
 		try {
-			event = stripe.webhooks.constructEvent(
-				buff,
-				secret!,
-				envConfig.stripe.webhookSecret
-			);
+			event = stripe.webhooks.constructEvent(buff, secret!, envConfig.stripe.webhookSecret);
 		} catch (err: any) {
 			return res.status(400).json({ error: err.message });
 		}
@@ -51,18 +53,15 @@ const webhooks = async (req: NextApiRequest, res: NextApiResponse) => {
 				switch (type) {
 					case 'customer.subscription.updated':
 					case 'customer.subscription.deleted':
-						const { id, customer } = event.data
-							.object as Stripe.Subscription;
+						const { id, customer } = event.data.object as Stripe.Subscription;
 
 						await saveSubscription(id, customer?.toString()!);
 
 						break;
 
 					case 'checkout.session.completed':
-						const {
-							subscription: checkoutSubscription,
-							customer: checkoutCustomer,
-						} = event.data.object as Stripe.Checkout.Session;
+						const { subscription: checkoutSubscription, customer: checkoutCustomer } =
+							event.data.object as Stripe.Checkout.Session;
 
 						await saveSubscription(
 							checkoutSubscription?.toString()!,
@@ -77,7 +76,7 @@ const webhooks = async (req: NextApiRequest, res: NextApiResponse) => {
 				}
 			} catch (error: any) {
 				return res.status(400).json({
-					error: error.message || 'Webhook handler failed.',
+					error: error.message || 'Webhook handler failed.'
 				});
 			}
 		}

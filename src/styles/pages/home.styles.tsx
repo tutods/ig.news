@@ -1,86 +1,86 @@
 import { styled } from '~/styles/stitches.config';
 
-const HeroSection = styled("section", {
-  width: "100%",
-  minHeight: "calc(100vh - $80)",
+const HeroSection = styled('section', {
+	width: '100%',
+	minHeight: 'calc(100vh - $80)',
 
-  display: "flex",
-  alignItems: "center",
+	display: 'flex',
+	alignItems: 'center'
 });
 
-const Content = styled("div", {
-  width: "100%",
-  maxWidth: "1440px",
+const Content = styled('div', {
+	width: '100%',
+	maxWidth: '1440px',
 
-  margin: "0 auto", // center horizontally
+	margin: '0 auto', // center horizontally
 
-  display: "grid",
-  justifyContent: "center",
-  alignItems: "center",
-  gap: "$32",
-  gridTemplateColumns: "1fr 1fr",
+	display: 'grid',
+	justifyContent: 'center',
+	alignItems: 'center',
+	gap: '$32',
+	gridTemplateColumns: '1fr 1fr',
 
-  // Title and Text Column
-  "div:first-of-type": {
-    h3: {
-      display: "flex",
-      alignItems: "center",
-      gap: "$20",
+	// Title and Text Column
+	'div:first-of-type': {
+		h3: {
+			display: 'flex',
+			alignItems: 'center',
+			gap: '$20',
 
-      marginBottom: "$40",
+			marginBottom: '$40',
 
-      fontSize: "$24",
-      lineWeight: "$32",
-      fontWeight: "$bold",
-      color: "$white",
-    },
+			fontSize: '$24',
+			lineWeight: '$32',
+			fontWeight: '$bold',
+			color: '$white'
+		},
 
-    h1: {
-      marginBottom: "$24",
+		h1: {
+			marginBottom: '$24',
 
-      fontSize: "$72",
-      fontWeight: "$extraBold",
-      lineHeight: "$72",
+			fontSize: '$72',
+			fontWeight: '$extraBold',
+			lineHeight: '$72',
 
-      span: {
-        color: "$blue",
-      },
-    },
+			span: {
+				color: '$blue'
+			}
+		},
 
-    p: {
-      marginBottom: "$40",
+		p: {
+			marginBottom: '$40',
 
-      color: "$white",
-      fontSize: "$24",
-      lineHeight: "$36",
+			color: '$white',
+			fontSize: '$24',
+			lineHeight: '$36',
 
-      span: {
-        color: "$blue",
-      },
-    },
-  },
+			span: {
+				color: '$blue'
+			}
+		}
+	},
 
-  // Image Column
-  "div:nth-of-type(2)": {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
+	// Image Column
+	'div:nth-of-type(2)': {
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center'
+	},
 
-  "@sm": {
-    px: "$32",
+	'@sm': {
+		px: '$32',
 
-    gridTemplateColumns: "1fr !important",
-    gridTemplateRows: "1fr 1fr",
+		gridTemplateColumns: '1fr !important',
+		gridTemplateRows: '1fr 1fr',
 
-    // Title and Text Column
-    "div:first-of-type": {
-      h1: {
-        fontSize: "$32",
-        lineHeight: "$36",
-      },
-    },
-  },
+		// Title and Text Column
+		'div:first-of-type': {
+			h1: {
+				fontSize: '$32',
+				lineHeight: '$36'
+			}
+		}
+	}
 });
 
-export { HeroSection, Content };
+export { Content, HeroSection };

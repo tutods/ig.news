@@ -13,7 +13,9 @@ const Header = () => {
 
 				<nav>
 					<NavLink href={'/'}>Home</NavLink>
-					<NavLink href={'/posts'}>Posts</NavLink>
+					<NavLink href={'/posts'} prefetch>
+						Posts
+					</NavLink>
 				</nav>
 
 				<GithubButton />

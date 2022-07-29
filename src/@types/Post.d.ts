@@ -5,5 +5,11 @@ type ShortPost = {
 	updatedAt: string;
 };
 
-export { ShortPost };
-k
+type Post = {
+	slug: string;
+	title: string;
+	content: string;
+	updatedAt: string;
+};
+
+export { Post, ShortPost };

@@ -10,7 +10,7 @@ type Props = {
 
 const PostCard = ({ post }: Props) => {
 	return (
-		<Link href={`${post.slug}`}>
+		<Link href={`/posts/${post.slug}`}>
 			<LinkContainer>
 				<time>{post.updatedAt}</time>
 				<h3>{post.title}</h3>

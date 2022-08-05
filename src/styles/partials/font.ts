@@ -1,3 +1,5 @@
+import { calculateRem } from '~/utils/calculateRem';
+
 const font = {
 	fonts: {
 		body: '"Roboto", sans-serif'
@@ -9,9 +11,9 @@ const font = {
 		14: '0.875rem',
 		16: '1rem',
 		18: '1.125rem',
-		20: '1.25rem',
+		20: calculateRem(20),
 		24: '1.5rem',
-		26: '1.625rem',
+		26: calculateRem(26),
 		28: '1.75rem',
 		32: '2rem',
 		48: '3rem',

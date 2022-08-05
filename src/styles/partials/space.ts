@@ -1,3 +1,5 @@
+import { calculateRem } from '~/utils/calculateRem';
+
 const space = {
 	2: '0.125rem',
 	3: '0.1875rem',
@@ -15,6 +17,7 @@ const space = {
 	22: '1.375rem',
 	24: '1.5rem',
 	26: '1.625rem',
+	27: calculateRem(27),
 	28: '1.75rem',
 	29: '1.8125rem',
 	32: '2rem',

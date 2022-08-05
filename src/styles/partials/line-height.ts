@@ -1,3 +1,5 @@
+import { calculateRem } from '~/utils/calculateRem';
+
 const lineHeights = {
 	8: '0.5rem',
 	12: '0.75rem',
@@ -6,6 +8,7 @@ const lineHeights = {
 	18: '1.1125rem',
 	20: '1.25rem',
 	22: '1.375rem',
+	23: calculateRem(23),
 	24: '1.50rem',
 	28: '1.75rem',
 	32: '2rem',

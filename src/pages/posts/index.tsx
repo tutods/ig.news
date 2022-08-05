@@ -1,5 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
+import { useSession } from 'next-auth/react';
 import { RichText } from 'prismic-dom';
 
 import { ShortPost } from '~/@types/Post';
@@ -13,6 +14,8 @@ type Props = {
 };
 
 const Posts: NextPage<Props> = ({ posts }) => {
+	const { data: session } = useSession();
+
 	return (
 		<>
 			<Head>
@@ -22,7 +25,11 @@ const Posts: NextPage<Props> = ({ posts }) => {
 			<Container>
 				<section>
 					{posts.map((post) => (
-						<PostCard post={post} key={post.slug} />
+						<PostCard
+							preview={!session?.activeSubscription}
+							post={post}
+							key={post.slug}
+						/>
 					))}
 				</section>
 			</Container>

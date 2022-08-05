@@ -1,6 +1,6 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
 
-import Icon from '~/components/icons/Icon';
+import Icon from '~/components/ui/icons/Icon';
 
 import { StyledButton } from '~/components/ui/buttons/GithubButton/styles';
 

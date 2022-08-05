@@ -6,11 +6,14 @@ import { LinkContainer } from './styles';
 
 type Props = {
 	post: ShortPost;
+	preview?: boolean;
 };
 
-const PostCard = ({ post }: Props) => {
+const PostCard = ({ post, preview = false }: Props) => {
+	const link = preview ? `/posts/preview/${post.slug}` : `/posts/${post.slug}`;
+
 	return (
-		<Link href={`/posts/${post.slug}`}>
+		<Link href={link}>
 			<LinkContainer>
 				<time>{post.updatedAt}</time>
 				<h3>{post.title}</h3>

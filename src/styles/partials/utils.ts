@@ -9,6 +9,9 @@ const utils = {
 		paddingLeft: value,
 		paddingRight: value
 	}),
+	mt: (value: PropertyValue<'marginTop'>) => ({
+		marginTop: value
+	}),
 	size: (value: PropertyValue<'width'>) => ({
 		width: value,
 		height: value

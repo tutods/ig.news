@@ -1,16 +1,28 @@
+import { useRouter } from 'next/router';
 import { signIn, useSession } from 'next-auth/react';
 
+import { CSSProps } from '~/@types/CSS';
 import { api } from '~/services/api';
 import { getStripeJs } from '~/services/stripe-js';
 
-import { StyledButton } from '~/components/ui/buttons/SubscriptionButton/styles';
+import { StyledButton } from './styles';
 
-const SubscriptionButton = () => {
+type Props = CSSProps & {
+	size?: 'inline' | 'block';
+};
+
+const SubscriptionButton = ({ size, ...props }: Props) => {
 	const { data: session } = useSession();
+	const router = useRouter();
 
 	const handleSubscribe = async () => {
 		if (!session) {
 			signIn('github');
+			return;
+		}
+
+		if (session?.activeSubscription) {
+			router.push('/posts');
 			return;
 		}
 
@@ -27,7 +39,18 @@ const SubscriptionButton = () => {
 		}
 	};
 
-	return <StyledButton onClick={handleSubscribe}>Subscribe Now</StyledButton>;
+	return (
+		<StyledButton size={size} {...props} onClick={handleSubscribe}>
+			{size === 'block' ? (
+				<>
+					Wanna continue reading? <span>Subscribe now</span>
+					<span>🤗</span>
+				</>
+			) : (
+				<>Subscribe Now</>
+			)}
+		</StyledButton>
+	);
 };
 
 export { SubscriptionButton };

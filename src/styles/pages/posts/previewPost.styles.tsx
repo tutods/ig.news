@@ -3,6 +3,9 @@ import { styled } from '~/styles/stitches.config';
 const StyledPostContent = styled('section', {
 	marginTop: '$32',
 
+	background: 'linear-gradient($colors$gray200, transparent)',
+	backgroundClip: 'text',
+	'-webkit-text-fill-color': 'transparent',
 	color: '$gray100',
 	lineHeight: '$32',
 	fontSize: '$18',
@@ -25,8 +28,6 @@ const StyledPostContainer = styled('main', {
 	margin: '0 auto',
 
 	'&>article': {
-		// maxWidth: '$720',
-
 		display: 'flex',
 		flexDirection: 'column',
 		gap: '$24',

@@ -676,3 +676,4 @@ fabric.properties
 .history/
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Node,yarn,Linux,react,macOS,dotenv,Windows,WebStorm,Intellij,WebStorm+iml,Intellij+all,WebStorm+all,Intellij+iml,VisualStudioCode
+.vercel

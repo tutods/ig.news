@@ -17,7 +17,7 @@
 		"baseUrl": ".",
 		"typeRoots": ["node_modules/@types", "./src/@types"],
 		"paths": {
-			"~/*": ["src/*"]
+			"~/*": ["./src/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "src", ".eslintrc.js"],

@@ -34,7 +34,7 @@ const Home: NextPage<Props> = ({ product }) => {
 								<span>for {product.amount} month</span>
 							</p>
 
-							<SubscriptionButton priceId={product.priceId} />
+							<SubscriptionButton />
 						</div>
 
 						<div>

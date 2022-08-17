@@ -18,27 +18,21 @@ const saveSubscription = async (
 		items: { data }
 	} = await stripe.subscriptions.retrieve(subscriptionId);
 
+	const subscriptionData = {
+		id,
+		userId: userRef,
+		status,
+		price_id: data[0].price.id
+	};
+
 	if (createAction) {
-		await fauna.query(
-			q.Create('subscriptions', {
-				data: {
-					id,
-					userId: userRef,
-					status,
-					price_id: data[0].price.id
-				}
-			})
-		);
+		await fauna.query(q.Create(q.Collection('subscriptions'), { data: subscriptionData }));
 	} else {
 		await fauna.query(
-			q.Replace(q.Select('ref', q.Get(q.Match(q.Index('subscription_by_id'), id))), {
-				data: {
-					id,
-					userId: userRef,
-					status,
-					price_id: data[0].price.id
-				}
-			})
+			q.Replace(
+				q.Select('ref', q.Get(q.Match(q.Index('subscription_by_id'), subscriptionId))),
+				{ data: subscriptionData }
+			)
 		);
 	}
 };

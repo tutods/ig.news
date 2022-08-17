@@ -63,6 +63,8 @@ const webhooks = async (req: NextApiRequest, res: NextApiResponse): Promise<void
 						const { subscription: checkoutSubscription, customer: checkoutCustomer } =
 							event.data.object as Stripe.Checkout.Session;
 
+						console.log(checkoutSubscription, checkoutCustomer);
+
 						await saveSubscription(
 							checkoutSubscription?.toString()!,
 							checkoutCustomer?.toString()!,

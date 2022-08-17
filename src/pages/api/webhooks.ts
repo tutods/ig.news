@@ -29,7 +29,8 @@ export const config = {
 const relevantEvents = new Set([
 	'checkout.session.completed',
 	'customer.subscription.updated',
-	'customer.subscription.deleted'
+	'customer.subscription.deleted',
+	'customer.subscription.created'
 ]);
 
 // eslint-disable-next-line consistent-return
@@ -60,6 +61,7 @@ const webhooks = async (req: NextApiRequest, res: NextApiResponse): Promise<void
 						break;
 
 					case 'checkout.session.completed':
+					case 'customer.subscription.created':
 						const { subscription: checkoutSubscription, customer: checkoutCustomer } =
 							event.data.object as Stripe.Checkout.Session;
 

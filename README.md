@@ -2,22 +2,7 @@
 <img src="public/media/ig.news.png" alt="ig.news" style="border-radius: 10px" />
 </div>
 <br />
-<br />
-
 <div align="center">
-  	<a href="#">
-  		<img src="https://img.shields.io/badge/React%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React"/>
-	</a>
-    <a href="#">
-  		<img src="https://img.shields.io/badge/Next.js-20232a.svg?style=for-the-badge&logo=next.js&logoColor=white" alt="Next"/>
-	</a>
-    <a href="#">
-  		<img src="https://img.shields.io/badge/Stripe-20232a.svg?style=for-the-badge&logo=stripe&logoColor=white" alt="Stripe"/>
-	</a>
-    <a href="#">
-  		<img src="https://img.shields.io/badge/prismic.io-20232a.svg?style=for-the-badge&logo=prismic&logoColor=white" alt="prismic"/>
-	</a>
-    <br />
 	<a href="#">
 		<img src="https://img.shields.io/badge/typescript%20-%23007ACC.svg?&style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
 	</a>

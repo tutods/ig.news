@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable no-case-declarations */
+/* eslint no-case-declarations: off */
+/* eslint @typescript-eslint/no-non-null-assertion: off */
 import { NextApiRequest, NextApiResponse } from 'next';
 import { Readable } from 'stream';
 import { Stripe } from 'stripe';
@@ -56,7 +55,7 @@ const webhooks = async (req: NextApiRequest, res: NextApiResponse): Promise<void
 					case 'customer.subscription.deleted':
 						const { id, customer } = event.data.object as Stripe.Subscription;
 
-						await saveSubscription(id, customer?.toString()!);
+						await saveSubscription(id, customer?.toString());
 
 						break;
 
@@ -65,11 +64,13 @@ const webhooks = async (req: NextApiRequest, res: NextApiResponse): Promise<void
 						const { subscription: checkoutSubscription, customer: checkoutCustomer } =
 							event.data.object as Stripe.Checkout.Session;
 
-						await saveSubscription(
-							checkoutSubscription?.toString()!,
-							checkoutCustomer?.toString()!,
-							true
-						);
+						if (checkoutSubscription && checkoutCustomer) {
+							await saveSubscription(
+								checkoutSubscription.toString(),
+								checkoutCustomer.toString(),
+								true
+							);
+						}
 
 						break;
 

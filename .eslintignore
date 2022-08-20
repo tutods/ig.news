@@ -25,3 +25,6 @@ pnpm*
 
 # vercel
 .vercel
+
+commitlint.config.js
+next.config.js

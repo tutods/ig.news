@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { GithubButton } from '~/components/ui/buttons/GithubButton';
 import { NavLink } from '~/components/ui/Header/partials/NavLink';
 
@@ -7,9 +9,11 @@ const Header = () => {
 	return (
 		<StyledHeader>
 			<HeaderContent>
-				<StyledLogo>
-					ig<span>.</span>news
-				</StyledLogo>
+				<Link href={'/'}>
+					<StyledLogo>
+						ig<span>.</span>news
+					</StyledLogo>
+				</Link>
 
 				<nav>
 					<NavLink href={'/'}>Home</NavLink>

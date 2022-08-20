@@ -39,7 +39,7 @@ const HeaderContent = styled('div', {
 	}
 });
 
-const StyledLogo = styled('div', {
+const StyledLogo = styled('a', {
 	color: '$white',
 	fontSize: '$26',
 	fontWeight: '$bold',

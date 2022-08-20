@@ -35,7 +35,6 @@
 	</a>
 </div>
 
-
 <h2 style="font-weight:300">🎨 Layout:</h2>
 
 To see layout created by **Rocketseat** team, click on badge below:
@@ -48,9 +47,13 @@ To see layout created by **Rocketseat** team, click on badge below:
 
 <h2 style="font-weight:300">📂 Changes:</h2>
 
-- Use **React Stitches** instead **Sass**;
-- Use **SVG Sprite** and **Icon** component to access icons in sprite;
-- I build some parts of my layout different **Diego** do on videos;
+-   Use **React Stitches** instead **Sass**;
+-   Use **SVG Sprite** and **Icon** component to access icons in sprite;
+-   I build some parts of my layout different **Diego** do on videos;
+
+<br /><br />
+
+<h2 style="font-weight:300">🖼 Pictures:</h2>
 
 <br /><br />
 
@@ -68,15 +71,10 @@ To see layout created by **Rocketseat** team, click on badge below:
 <div style="margin: 20px 0" />
 
 [facebook]: https://facebook.com/tutods2014
-
 [twitter]: https://twitter.com/tutods
-
 [youtube]: https://youtube.com/tutods2014
-
 [instagram]: https://instagram.com/dsousa_12
-
 [linkedin]: https://www.linkedin.com/in/daniel-sousa-tutods/
-
 [gitlab]: https://gitlab.com/jdaniel.asousa
 
 [<img src="https://img.shields.io/badge/Facebook%20-%232671E5.svg?&style=for-the-badge&logo=Facebook&logoColor=white" alt="Facebook"/>][facebook] [<img src="https://img.shields.io/badge/Twitter%20-%231DA1F2.svg?&style=for-the-badge&logo=Twitter&logoColor=white" alt="Twitter"/>][twitter]

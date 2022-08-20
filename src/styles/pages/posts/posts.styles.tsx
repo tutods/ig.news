@@ -1,12 +1,10 @@
 import { styled } from '~/styles/stitches.config';
 
 const Container = styled('main', {
-	maxWidth: '$1120',
+	maxWidth: '1440px',
 	margin: '0 auto',
 
 	'&>section': {
-		maxWidth: '$720',
-
 		display: 'flex',
 		flexDirection: 'column',
 		gap: '$32',

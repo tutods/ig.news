@@ -1,7 +1,7 @@
+import { asText } from '@prismicio/helpers';
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { useSession } from 'next-auth/react';
-import { RichText } from 'prismic-dom';
 
 import { ShortPost } from '~/@types/Post';
 import { PostCard } from '~/components/ui/cards/PostCard';
@@ -47,7 +47,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	const posts = response.map((post) => {
 		return {
 			slug: post.uid,
-			title: RichText.asText(post.data.title),
+			title: asText(post.data.title),
 			excerpt:
 				post.data.content.find((content: any) =>
 					['heading3', 'paragraph', 'heading4', 'heading5', 'heading6'].includes(

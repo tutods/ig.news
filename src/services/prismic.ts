@@ -7,10 +7,6 @@ const getPrismicClient = () => {
 		accessToken: envConfig.prismic.token
 	});
 
-	// Prismic.Client(envConfig.prismic.entryPoint, {
-	// 	accessToken: envConfig.prismic.token,
-	// });
-
 	return client;
 };
 

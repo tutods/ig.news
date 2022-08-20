@@ -1,7 +1,7 @@
+import { asHTML, asText } from '@prismicio/helpers';
 import { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import { getSession } from 'next-auth/react';
-import { RichText } from 'prismic-dom';
 
 import { Post } from '~/@types/Post';
 import { getPrismicClient } from '~/services/prismic';
@@ -47,8 +47,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
 
 	const post = {
 		slug,
-		title: RichText.asText(response.data.title),
-		content: RichText.asHtml(response.data.content),
+		title: asText(response.data.title),
+		content: asHTML(response.data.content),
 		updatedAt: new Date(response.last_publication_date).toLocaleDateString('pt-PT', {
 			day: '2-digit',
 			month: 'long',

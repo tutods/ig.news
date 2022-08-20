@@ -1,8 +1,8 @@
+import { asHTML, asText } from '@prismicio/helpers';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
-import { RichText } from 'prismic-dom';
 import { useEffect } from 'react';
 
 import { Post } from '~/@types/Post';
@@ -57,8 +57,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 	const post = {
 		slug: params?.slug,
-		title: RichText.asText(response.data.title),
-		content: RichText.asHtml(response.data.content.splice(0, 3)),
+		title: asText(response.data.title),
+		content: asHTML(response.data.content.splice(0, 3)),
 		updatedAt: new Date(response.last_publication_date).toLocaleDateString('pt-PT', {
 			day: '2-digit',
 			month: 'long',

@@ -12,13 +12,13 @@
 	},
 	"dependencies": {
 		"@prismicio/client": "^6.6.4",
+		"@prismicio/helpers": "^2.3.3",
 		"@stitches/react": "^1.2.8",
 		"@stripe/stripe-js": "^1.35.0",
 		"axios": "^0.27.2",
 		"faunadb": "^4.6.0",
 		"next": "12.2.5",
 		"next-auth": "^4.10.3",
-		"prismic-dom": "^2.2.7",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"stripe": "^10.2.0"
@@ -26,6 +26,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "^17.0.3",
 		"@commitlint/config-conventional": "^17.0.3",
+		"@next/eslint-plugin-next": "^12.2.5",
 		"@types/node": "18.7.6",
 		"@types/prismic-dom": "^2.1.1",
 		"@types/react": "18.0.17",
